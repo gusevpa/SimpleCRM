@@ -2,11 +2,11 @@ package com.example.users.Service;
 
 import com.example.users.Entity.UserEntity;
 import com.example.users.Repository.UserRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
+
+import java.util.stream.Stream;
 
 @Service
 public class UserDataService {
@@ -37,8 +37,7 @@ public class UserDataService {
         };
     }
 
-    @Bean
     public String get() {
-            return userRepository.findById(1L).toString();
+        return userRepository.findAll().toString();
     }
 }
