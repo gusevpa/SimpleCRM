@@ -6,6 +6,7 @@ Simple CRM project with:
 - Spring boot 2
 - Hibernate ORM
 - Lombok
-- WEB
+- Spring Web
+- Spring MVC
 - RESTful (maybe, I don't know) 
 - some other interesting things
