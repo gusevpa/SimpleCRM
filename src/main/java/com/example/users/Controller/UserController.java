@@ -6,6 +6,9 @@ import org.springframework.http.*;
 import org.springframework.util.*;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Контроллер. Честно.
+ */
 @RestController
 @RequestMapping("/crm/api/v1")
 public class UserController {

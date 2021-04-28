@@ -1,6 +1,10 @@
 import org.junit.jupiter.api.*;
 
-
+/**
+ * Unfortunately there is no tests here yet.
+ * Sorry.
+ *
+ */
 class UserControllerTest {
 
     @BeforeEach
