@@ -5,10 +5,7 @@ import com.example.users.Service.UserDataService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MimeTypeUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/crm/api/v1")
@@ -21,14 +18,12 @@ public class UserController {
     }
 
     @ResponseBody
-    @GetMapping(value = "/users/getAll",
+    @GetMapping(value = "/users/getById",
             produces = { MimeTypeUtils.APPLICATION_JSON_VALUE },
-            headers = "Accept=application/json"
-    )
-
-    public ResponseEntity<Iterable<UserEntity>> getAll() {
+            headers = "Accept=application/json")
+    public ResponseEntity<UserEntity> getById(@RequestParam String id) {
         try {
-            return new ResponseEntity<>(userDataService.get(), HttpStatus.OK);
+            return new ResponseEntity<>(userDataService.getById(id).get(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
