@@ -7,7 +7,7 @@ import org.springframework.context.annotation.*;
 
 /**
  * Переназначение спрингового генератора имен на значение из application.properties
- * В данном варианте переназназначает имя таблицы по-умолчанию для UserEntity
+ * В данном варианте переназназначает имя таблицы по умолчанию для UserEntity
  */
 @Configuration
 public class TableNameConfig {
