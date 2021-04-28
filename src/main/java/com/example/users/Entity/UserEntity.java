@@ -6,15 +6,15 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "item")
+@Table(name = "TestUser")
 public class UserEntity {
     @Id
-    private long id;
+    @GeneratedValue
+    private Long id;
     private String name;
     private String email;
     private String phoneNumber;
 
     public UserEntity() {
-
     }
 }
