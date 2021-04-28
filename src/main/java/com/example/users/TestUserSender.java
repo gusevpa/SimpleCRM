@@ -1,6 +1,5 @@
 package com.example.users;
 
-import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.node.*;
 import org.springframework.http.*;
@@ -25,7 +24,6 @@ public class TestUserSender {
                 new HttpEntity<>(objectNode.toString(), headers);
 
         System.out.println("CREATE  " + restTemplate.postForObject(createUserUrl, request, String.class));
-
     }
 }
 
