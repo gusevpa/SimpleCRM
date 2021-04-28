@@ -17,10 +17,10 @@ public class UserController {
     }
 
     @ResponseBody
-    @GetMapping(value = "/users/getById",
+    @GetMapping(value = "/users/getbyid",
             produces = { MimeTypeUtils.APPLICATION_JSON_VALUE },
             headers = "Accept=application/json")
-    public ResponseEntity<UserEntity> getById(@RequestParam String id) {
+    public ResponseEntity<UserEntity> getById(@RequestParam(name = "id") String id) {
         try {
             return new ResponseEntity<>(userDataService.getById(id).get(), HttpStatus.OK);
         } catch (Exception e) {
@@ -29,10 +29,18 @@ public class UserController {
     }
 
     @PostMapping(
-            value = "/users/createUpdateUser",
+            value = "/users/createuser",
             consumes = "application/json",
             produces = "application/json")
     public String createUser(@RequestBody UserEntity userEntity) {
+        return userDataService.saveUpdateUser(userEntity);
+    }
+
+    @PostMapping(
+            value = "/users/updateuser",
+            consumes = "application/json",
+            produces = "application/json")
+    public String updateUser(@RequestBody UserEntity userEntity) {
         return userDataService.saveUpdateUser(userEntity);
     }
 }
