@@ -14,7 +14,7 @@ public class UserEntity {
     private Long id;
     private String name;
     private String phone;
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String email;
 
 }
