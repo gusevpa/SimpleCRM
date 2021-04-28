@@ -29,7 +29,7 @@ public class UserController {
     }
 
     @PostMapping(
-            value = "/users/createUser",
+            value = "/users/createUpdateUser",
             consumes = "application/json",
             produces = "application/json")
     public String createUser(@RequestBody UserEntity userEntity) {
