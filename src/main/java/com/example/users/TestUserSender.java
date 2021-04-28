@@ -1,38 +1,32 @@
 package com.example.users;
 
+import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.node.*;
-import org.apache.http.client.methods.*;
-import org.apache.http.entity.*;
-import org.apache.http.impl.client.*;
 import org.springframework.http.*;
-
-import java.io.*;
-import java.nio.charset.*;
-import java.util.*;
+import org.springframework.web.client.*;
 
 public class TestUserSender {
 
-    public ResponseEntity sendToUserSave(String name, String phone, String email){
+    public void sendToUserSave(){
 
-        CloseableHttpClient client = HttpClients.createDefault();
-        HttpPost post = new HttpPost("http://localhost:8095/crm/api/v1/users/setUser");
+        String createPersonUrl = "http://localhost:8095/crm/api/v1/users/createUser";
+        String updatePersonUrl = "http://localhost:8095/crm/api/v1/users/updateUser";
 
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
         ObjectMapper objectMapper = new ObjectMapper();
         ObjectNode objectNode = objectMapper.createObjectNode()
-                .put("name", name)
-                .put("phone", phone)
-                .put("email", email);
+                .put("name", "Petya")
+                .put("phone", "8 8118118181")
+                .put("email", "petya@mail.ru");
 
+        HttpEntity<String> request =
+                new HttpEntity<>(objectNode.toString(), headers);
 
-        String encodedUser = Base64.getEncoder().encodeToString(objectNode.toString().getBytes(StandardCharsets.UTF_8));
-        try{
-            post.setEntity(new StringEntity(encodedUser));
-            CloseableHttpResponse response = client.execute(post);
-            response.close();
-            return new ResponseEntity<>(HttpStatus.OK);
-        }catch (IOException e){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        System.out.println("UPDATE  " + restTemplate.postForObject(updatePersonUrl, request, String.class));
+        System.out.println("CREATE  " + restTemplate.postForObject(createPersonUrl, request, String.class));
     }
 }
+
