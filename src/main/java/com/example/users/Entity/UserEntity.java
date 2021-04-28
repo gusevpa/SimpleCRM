@@ -16,12 +16,4 @@ public class UserEntity {
     private String phone;
     private String email;
 
-    public UserEntity() {
-    }
-
-    public UserEntity(String name, String phone, String email) {
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-    }
 }

@@ -11,9 +11,6 @@ public class TableNameConfig {
     @Value("${user.table.name}")
     private String userTableName;
 
-    @Value("${onlineUserStatus.table.name}")
-    private String onlineUserStatusTableName;
-
     @Bean
     public PhysicalNamingStrategyStandardImpl physicalNamingStrategyStandard() {
         return new PhysicalNamingImpl();
@@ -26,8 +23,6 @@ public class TableNameConfig {
             switch (name.getText()) {
                 case "UserEntity":
                     return new Identifier(userTableName, name.isQuoted());
-                case "UserOnlineStatusEntity":
-                    return new Identifier(onlineUserStatusTableName, name.isQuoted());
                 default:
                     return super.toPhysicalTableName(name, context);
             }

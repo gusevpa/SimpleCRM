@@ -5,9 +5,6 @@ import com.example.users.Service.*;
 import org.springframework.http.*;
 import org.springframework.util.*;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.*;
-
-import javax.servlet.http.*;
 
 @RestController
 @RequestMapping("/crm/api/v1")
@@ -32,16 +29,10 @@ public class UserController {
     }
 
     @PostMapping(
-            value = "/users/createUser",consumes = "application/json", produces = "application/json")
+            value = "/users/createUser",
+            consumes = "application/json",
+            produces = "application/json")
     public String createUser(@RequestBody UserEntity userEntity) {
-        return userDataService.saveUpdateUser(userEntity);
-    }
-
-    @PostMapping(
-            value = "/users/updateUser",consumes = "application/json", produces = "application/json")
-    public String updateUser(@RequestBody UserEntity userEntity, HttpServletResponse response) {
-        response.setHeader("Location", ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/findPerson/" + userEntity.getId()).toUriString());
         return userDataService.saveUpdateUser(userEntity);
     }
 }

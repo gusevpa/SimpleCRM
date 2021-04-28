@@ -10,8 +10,7 @@ public class TestUserSender {
 
     public void sendToUserSave(){
 
-        String createPersonUrl = "http://localhost:8095/crm/api/v1/users/createUser";
-        String updatePersonUrl = "http://localhost:8095/crm/api/v1/users/updateUser";
+        String createUserUrl = "http://localhost:8095/crm/api/v1/users/createUser";
 
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
@@ -25,8 +24,8 @@ public class TestUserSender {
         HttpEntity<String> request =
                 new HttpEntity<>(objectNode.toString(), headers);
 
-        System.out.println("UPDATE  " + restTemplate.postForObject(updatePersonUrl, request, String.class));
-        System.out.println("CREATE  " + restTemplate.postForObject(createPersonUrl, request, String.class));
+        System.out.println("CREATE  " + restTemplate.postForObject(createUserUrl, request, String.class));
+
     }
 }
 
