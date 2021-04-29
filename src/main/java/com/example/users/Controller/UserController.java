@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @ResponseBody
-    @GetMapping(value = "/users/getbyid",
+    @GetMapping(value = "/users/getuser",
             produces = { MimeTypeUtils.APPLICATION_JSON_VALUE },
             headers = "Accept=application/json")
     public ResponseEntity<UserEntity> getById(@RequestParam(name = "id") String id) {
