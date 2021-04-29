@@ -2,7 +2,7 @@
 
 Simple CRM project with:
 
-- Java 16
+- Java 8
 - Spring boot 2
 - Hibernate ORM
 - Lombok
