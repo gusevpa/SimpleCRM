@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class UserEntity {
 
     @Id
-    @GeneratedValue//(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     private String name;
     private String phone;
