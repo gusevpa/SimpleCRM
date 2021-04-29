@@ -1,7 +1,6 @@
 package com.example.users.Entity;
 
 import lombok.Data;
-import org.springframework.boot.autoconfigure.*;
 
 import javax.persistence.*;
 
@@ -11,7 +10,7 @@ import javax.persistence.*;
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue//(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String phone;
