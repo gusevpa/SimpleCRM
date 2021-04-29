@@ -1,6 +1,7 @@
 package com.example.users.Entity;
 
 import lombok.Data;
+import org.springframework.boot.autoconfigure.*;
 
 import javax.persistence.*;
 
