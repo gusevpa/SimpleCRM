@@ -21,11 +21,10 @@ public class UserController {
         this.userStatusService = userStatusService;
     }
 
-    @ResponseBody
     @GetMapping(value = "/users/getuser",
             produces = { MimeTypeUtils.APPLICATION_JSON_VALUE },
             headers = "Accept=application/json")
-    public ResponseEntity<UserEntity> getById(@RequestParam(name = "id") String id) {
+    public ResponseEntity<UserEntity> getById(String id) {
 
         try {
             return new ResponseEntity<>(userDataService.getById(id).get(), HttpStatus.OK);
@@ -38,7 +37,7 @@ public class UserController {
             value = "/users/createuser",
             consumes = "application/json",
             produces = "application/json")
-    public ResponseEntity<String> createUser(@RequestBody UserEntity userEntity) {
+    public ResponseEntity<String> createUser(UserEntity userEntity) {
         try {
             return new ResponseEntity<>(userDataService.saveUpdateUser(userEntity), HttpStatus.OK);
         }catch (Exception e){
@@ -50,7 +49,7 @@ public class UserController {
             value = "/users/updateuser",
             consumes = "application/json",
             produces = "application/json")
-    public ResponseEntity<String> updateUser(@RequestBody UserEntity userEntity) {
+    public ResponseEntity<String> updateUser(UserEntity userEntity) {
         try {
             return new ResponseEntity<>(userDataService.saveUpdateUser(userEntity), HttpStatus.OK);
         }catch (Exception e){
@@ -62,7 +61,7 @@ public class UserController {
             value = "/users/userstatus",
             consumes = "application/json",
             produces = "application/json")
-    public ResponseEntity<UserStatusDto> updateUserStatus(@RequestBody UserStatusDto userStatus) {
+    public ResponseEntity<UserStatusDto> updateUserStatus(UserStatusDto userStatus) {
         try {
             return new ResponseEntity<>(userStatusService.updateUserStatus(userStatus).get(), HttpStatus.OK);
         }catch (Exception e){
