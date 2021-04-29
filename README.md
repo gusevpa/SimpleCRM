@@ -13,7 +13,7 @@ Simple CRM project with:
 
 How to:
   - open annotation.property and change DB parameters to yours;
-  - make shure that DB user you log in with have permission to create tables in public schema seected DB;
+  - make shure that DB user you log in with have permission to create tables in selected DB "public" schema;
   - mvn clean install;
   - enjoy.
 
