@@ -1,4 +1,4 @@
-package com.example.users.Configuration;
+package com.example.users.configuration;
 
 import org.hibernate.boot.model.naming.*;
 import org.hibernate.engine.jdbc.env.spi.*;

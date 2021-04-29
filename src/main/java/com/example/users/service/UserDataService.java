@@ -1,7 +1,7 @@
-package com.example.users.Service;
+package com.example.users.service;
 
-import com.example.users.Entity.UserEntity;
-import com.example.users.Repository.UserRepository;
+import com.example.users.entity.UserEntity;
+import com.example.users.repository.UserRepository;
 import com.fasterxml.jackson.databind.*;
 import org.springframework.stereotype.Service;
 

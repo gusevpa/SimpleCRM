@@ -1,7 +1,7 @@
-package com.example.users.Controller;
+package com.example.users.controller;
 
-import com.example.users.Entity.*;
-import com.example.users.Service.*;
+import com.example.users.entity.*;
+import com.example.users.service.*;
 import org.springframework.http.*;
 import org.springframework.util.*;
 import org.springframework.web.bind.annotation.*;

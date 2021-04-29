@@ -1,15 +1,13 @@
-package com.example.users.Service;
+package com.example.users.service;
 
-import com.example.users.Entity.*;
+import com.example.users.entity.*;
 import org.springframework.context.annotation.*;
 import org.springframework.scheduling.annotation.*;
 import org.springframework.stereotype.*;
 
 import java.time.*;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.*;
-import java.util.stream.Stream;
 
 @Service
 public class UserStatusService {
