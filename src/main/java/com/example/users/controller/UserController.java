@@ -21,30 +21,28 @@ public class UserController {
         this.userStatusService = userStatusService;
     }
 
-    @GetMapping(value = "/users/getuser",
-            produces = { MimeTypeUtils.APPLICATION_JSON_VALUE },
-            headers = "Accept=application/json")
-    public ResponseEntity<UserEntity> getById(String id) {
+    /**
+     * @param - {'id': 1}
+     * @return - в случае успеха возвращает UserEntity
+     */
+    @GetMapping(value = "/users/getuser")
+    public ResponseEntity<UserEntity> getById(@RequestBody UserEntity userEntity) {
 
         try {
-            return new ResponseEntity<>(userDataService.getById(id).get(), HttpStatus.OK);
+            return new ResponseEntity<>(userDataService.getById(userEntity).get(), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @PostMapping(
-            value = "/users/createuser",
-            consumes = "application/json",
-            produces = "application/json")
-    public ResponseEntity<String> createUser(@RequestBody UserEntity userEntity) {
-        try {
-            return new ResponseEntity<>(userDataService.saveUpdateUser(userEntity), HttpStatus.OK);
-        }catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
-    }
-
+    /**
+     * @param - Внесение пользователя (поле id не вносить) - {'name': 'Olesya', 'phone': '119', 'email': '2olgdsfgso@mail.ru'}
+     * Поле email - уникальное. При наличии пользователя с таким же email - пользователь не создастся
+     * @return - в случае успеха возвращает {'id': 1} где "1" - айди нового юзера
+     *
+     * @param - Изменение пользователя (поле id - обязательно) - {'id':1,'name': 'Olesya', 'phone': '119', 'email': '2olgdsfgso@mail.ru'}
+     * @return - в случае успеха возвращает {'id': 1} где "1" - айди измененного пользователя
+     */
     @PostMapping(
             value = "/users/updateuser",
             consumes = "application/json",
@@ -57,6 +55,10 @@ public class UserController {
         }
     }
 
+    /**
+     * @param userStatus  - {'id': 1, 'status': 'Offline'}, поле status - содержит новый статус
+     * @return - {"id":1,"status":"Offline","prevStatus":"Offline"} новый стату и предыдущий
+     */
     @PostMapping(
             value = "/users/userstatus",
             consumes = "application/json",

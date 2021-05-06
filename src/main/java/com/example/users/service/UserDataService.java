@@ -18,12 +18,12 @@ public class UserDataService {
 
     /**
      *
-     * @param id - строковое значение id пользователя, которого мы хотим вернуть из базыю
+     * @param  - строковое значение id пользователя, которого мы хотим вернуть из базыю
      *           В случае, если таковой в БД отсутствует - возвращаем ошибку из контроллера.
      * @return - JSON со всеми полями UserEntity
      */
-    public Optional<UserEntity> getById(String id) {
-        return userRepository.findById(Long.parseLong(id));
+    public Optional<UserEntity> getById(UserEntity userEntity) {
+        return userRepository.findById(userEntity.getId());
     }
 
     /**
