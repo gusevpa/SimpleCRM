@@ -57,7 +57,7 @@ public class UserController {
 
     /**
      * @param userStatus  - {'id': 1, 'status': 'Offline'}, поле status - содержит новый статус
-     * @return - {"id":1,"status":"Offline","prevStatus":"Offline"} новый стату и предыдущий
+     * @return - {"id":1,"status":"Offline","prevStatus":"Offline"} новый статус и предыдущий
      */
     @PostMapping(
             value = "/users/userstatus",
