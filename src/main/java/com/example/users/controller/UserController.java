@@ -22,8 +22,8 @@ public class UserController {
     }
 
     /**
-     * @param - {'id': 1}
-     * @return - в случае успеха возвращает UserEntity
+     * @param - {'id': 1} - UserEntity, содержащий id пользователя, которого мы хотим вернуть из базы.
+     * @return - в случае успеха возвращает UserEntity со всеми полями
      */
     @GetMapping(value = "/users/getuser")
     public ResponseEntity<UserEntity> getById(@RequestBody UserEntity userEntity) {
