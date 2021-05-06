@@ -21,3 +21,6 @@ How to:
 
 import.sql file has test data to refill empty DB table. If you do not want use it - just delete this file before build.
 Make shure you use option mvn clean before mvn install.
+
+Some first attempts to add new user may produce errors, because import test data from import.sql is not correct. To test this function (new user adding) you must 
+delete import.sql before first application launch or delete this & DB table before second try for import users by the correct way.
